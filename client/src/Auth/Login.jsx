@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FaEnvelope, FaLock } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import { loginUser } from "../Api/api"; // Make sure to import your API function
 import "../styles/user.css"; // Make sure to import your CSS file
 
@@ -82,6 +83,9 @@ const LoginForm = () => {
             Login
           </button>
         </form>
+        <div className="register-link">
+          Don't have an account? <Link to="/register">Register here</Link>
+        </div>
       </div>
     </div>
   );

@@ -8,32 +8,41 @@ import { RxCross1 } from "react-icons/rx";
 import { HiOutlineBars4 } from "react-icons/hi2";
 
 const Navbar = ({ setScroll }) => {
-  function displayDropdown() {
-    var ele = document.getElementById("desdrop");
-    ele.classList.toggle("show");
-    ele.classList.toggle("hide");
-    console.dir(ele);
-  }
   const navigate = useNavigate();
-  function handleCLick() {
-    navigate("/kitchenSizeCalc");
-  }
-  function naviToHome() {
-    navigate("/");
-  }
   const [isOpen, setIsOpen] = useState();
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
   };
 
+  function displayDropdown() {
+    var ele = document.getElementById("desdrop");
+    ele.classList.toggle("show");
+    ele.classList.toggle("hide");
+    console.dir(ele);
+  }
+
+  function handleCLick() {
+    navigate("/kitchenSizeCalc");
+  }
+
+  function naviToHome() {
+    navigate("/");
+  }
+
   function skipToMain(data) {
     const ele = document.getElementById("scrollBar");
     localStorage.setItem("selectedItem", JSON.stringify(data));
-    // let temp = localStorage.getItem("selectedItem");
-    // console.log("in the storage", temp);
     setScroll(data);
     ele.scrollIntoView({ behavior: "smooth" });
+  }
+
+  function handleSignIn() {
+    navigate("/login");
+  }
+
+  function handleSignUp() {
+    navigate("/register");
   }
 
   return (
@@ -49,57 +58,31 @@ const Navbar = ({ setScroll }) => {
               <span>
                 <IoMdArrowDropdown />
               </span>
-              <div id="desdrop" className="des_dropdown  hide">
+              <div id="desdrop" className="des_dropdown hide">
                 <ul className="list">
-                  <li
-                    onClick={() => skipToMain("Living Room")}
-                    className="list-item"
-                  >
-                    Living room{" "}
+                  <li onClick={() => skipToMain("Living Room")} className="list-item">
+                    Living room
                   </li>
-                  <li
-                    onClick={() => skipToMain("Wardrobe")}
-                    className="list-item"
-                  >
-                    Wardrobe{" "}
+                  <li onClick={() => skipToMain("Wardrobe")} className="list-item">
+                    Wardrobe
                   </li>
-                  <li
-                    onClick={() => skipToMain("Master Bedroom")}
-                    className="list-item"
-                  >
-                    Bedroom{" "}
+                  <li onClick={() => skipToMain("Master Bedroom")} className="list-item">
+                    Bedroom
                   </li>
-                  <li
-                    onClick={() => skipToMain("Modular Kitchen")}
-                    className="list-item"
-                  >
-                    Kitchen{" "}
+                  <li onClick={() => skipToMain("Modular Kitchen")} className="list-item">
+                    Kitchen
                   </li>
-                  <li
-                    onClick={() => skipToMain("Kids Room")}
-                    className="list-item"
-                  >
-                    Kids Room{" "}
+                  <li onClick={() => skipToMain("Kids Room")} className="list-item">
+                    Kids Room
                   </li>
-                  <li
-                    onClick={() => skipToMain("Balcony")}
-                    className="list-item"
-                  >
-                    Balcony{" "}
+                  <li onClick={() => skipToMain("Balcony")} className="list-item">
+                    Balcony
                   </li>
-                  <li
-                    onClick={() => skipToMain("Pooja Ghar")}
-                    className="list-item"
-                  >
-                    {" "}
-                    Pooja Ghar{" "}
+                  <li onClick={() => skipToMain("Pooja Ghar")} className="list-item">
+                    Pooja Ghar
                   </li>
-                  <li
-                    onClick={() => skipToMain("Living Room")}
-                    className="list-item"
-                  >
-                    {" "}
-                    Bathroom{" "}
+                  <li onClick={() => skipToMain("Living Room")} className="list-item">
+                    Bathroom
                   </li>
                 </ul>
               </div>
@@ -111,15 +94,18 @@ const Navbar = ({ setScroll }) => {
             </li>
           </ul>
         </div>
-        <div className="store ">
+        <div className="store">
           <div className="cart hide-mob">
             <TiShoppingCart />
           </div>
-          <div className="profile options hide-mob">
+          <div className="profile options hide-mob" onClick={handleSignIn}>
             <CgProfile /> Sign In
           </div>
+          <div className="sign-up options hide-mob" onClick={handleSignUp}>
+            Sign Up
+          </div>
           <div onClick={toggleSidebar} className="toggleIcon">
-            {<HiOutlineBars4 />}
+            <HiOutlineBars4 />
           </div>
         </div>
       </div>
@@ -128,7 +114,7 @@ const Navbar = ({ setScroll }) => {
 
       <div id="mob-nav" className={`sidebar ${isOpen ? "open" : "closed"}`}>
         <button className="close-btn" onClick={toggleSidebar}>
-          {<RxCross1 />}
+          <RxCross1 />
         </button>
 
         <ul>
@@ -143,6 +129,12 @@ const Navbar = ({ setScroll }) => {
           </li>
           <li className="sidebar-item">
             <a href="#kitchen-calculator">Kitchen Calculator</a>
+          </li>
+          <li className="sidebar-item" onClick={handleSignIn}>
+            Sign In
+          </li>
+          <li className="sidebar-item" onClick={handleSignUp}>
+            Sign Up
           </li>
         </ul>
       </div>
