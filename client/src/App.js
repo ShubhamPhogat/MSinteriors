@@ -11,6 +11,7 @@ import SubmitForm from "./components/SubmitForm";
 import RegisterForm from "./Auth/Register";
 import { useState } from "react";
 import LoginForm from "./Auth/Login";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   const [ScrollItem, SetScrollItem] = useState("");
@@ -27,6 +28,18 @@ function App() {
         <Route path="/submitForm" element={<SubmitForm />} />
         <Route path="/kitchenSizeCalc/*" element={<SizeSelection />} />
       </Routes>
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </div>
   );
 }

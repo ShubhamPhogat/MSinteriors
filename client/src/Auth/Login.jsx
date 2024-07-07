@@ -3,6 +3,7 @@ import { FaEnvelope, FaLock } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { loginUser } from "../Api/api"; // Make sure to import your API function
 import "../styles/user.css"; // Make sure to import your CSS file
+import {  toast } from 'react-toastify';
 
 const LoginForm = () => {
   const [formData, setFormData] = useState({
@@ -29,6 +30,7 @@ const LoginForm = () => {
       const response = await loginUser(formData);
       if (response.status === 200) {
         setSuccess("Login successful!");
+        toast.success("Login")
         console.log("login");
         setFormData({
           email: "",

@@ -60,28 +60,52 @@ const Navbar = ({ setScroll }) => {
               </span>
               <div id="desdrop" className="des_dropdown hide">
                 <ul className="list">
-                  <li onClick={() => skipToMain("Living Room")} className="list-item">
+                  <li
+                    onClick={() => skipToMain("Living Room")}
+                    className="list-item"
+                  >
                     Living room
                   </li>
-                  <li onClick={() => skipToMain("Wardrobe")} className="list-item">
+                  <li
+                    onClick={() => skipToMain("Wardrobe")}
+                    className="list-item"
+                  >
                     Wardrobe
                   </li>
-                  <li onClick={() => skipToMain("Master Bedroom")} className="list-item">
+                  <li
+                    onClick={() => skipToMain("Master Bedroom")}
+                    className="list-item"
+                  >
                     Bedroom
                   </li>
-                  <li onClick={() => skipToMain("Modular Kitchen")} className="list-item">
+                  <li
+                    onClick={() => skipToMain("Modular Kitchen")}
+                    className="list-item"
+                  >
                     Kitchen
                   </li>
-                  <li onClick={() => skipToMain("Kids Room")} className="list-item">
+                  <li
+                    onClick={() => skipToMain("Kids Room")}
+                    className="list-item"
+                  >
                     Kids Room
                   </li>
-                  <li onClick={() => skipToMain("Balcony")} className="list-item">
+                  <li
+                    onClick={() => skipToMain("Balcony")}
+                    className="list-item"
+                  >
                     Balcony
                   </li>
-                  <li onClick={() => skipToMain("Pooja Ghar")} className="list-item">
+                  <li
+                    onClick={() => skipToMain("Pooja Ghar")}
+                    className="list-item"
+                  >
                     Pooja Ghar
                   </li>
-                  <li onClick={() => skipToMain("Living Room")} className="list-item">
+                  <li
+                    onClick={() => skipToMain("Living Room")}
+                    className="list-item"
+                  >
                     Bathroom
                   </li>
                 </ul>
@@ -98,11 +122,11 @@ const Navbar = ({ setScroll }) => {
           <div className="cart hide-mob">
             <TiShoppingCart />
           </div>
-          <div className="profile options hide-mob" onClick={handleSignIn}>
+          <div className="profile cart options hide-mob" onClick={handleSignIn}>
             <CgProfile /> Sign In
           </div>
           <div className="sign-up options hide-mob" onClick={handleSignUp}>
-            Sign Up
+            <CgProfile /> Sign Up
           </div>
           <div onClick={toggleSidebar} className="toggleIcon">
             <HiOutlineBars4 />

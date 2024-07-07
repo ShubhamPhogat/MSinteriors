@@ -46,6 +46,7 @@ const loginUser = async (req, res) => {
       },
     };
 
+    console.log("login");
     jwt.sign(
       payload,
       process.env.JWT_SECRET,
