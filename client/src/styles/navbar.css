@@ -1,0 +1,246 @@
+.main-nav
+{
+  margin-top: 0%;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  z-index: 1000; /* Ensure it's above the background image */
+  display: grid;
+  width: 100%;
+  height: 70px;
+  grid-template-columns: 7rem 1fr 2.5fr 1fr 7rem;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  opacity: 0.8;
+  color: aliceblue;
+  /* filter: blur(3px); */
+}
+.logo
+{
+
+  align-items: center;
+  justify-content: center;
+  grid-column: 2/3;
+  display: flex;
+  /* background-color: aqua; */
+  cursor: pointer;
+}
+.logo span{
+  font-size: 2rem;
+
+}
+.nav-options ul
+{
+grid-column: 3/4;
+font-size: 1.2rem;
+align-items: center;
+justify-content: center;
+display: flex;
+text-decoration: none;
+list-style-type: none;
+justify-content: space-between;
+}
+.store
+{
+  grid-column: 4/5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+.cart
+{
+  margin-right: 3rem;
+  font-size: 1.4rem;
+}
+.profile
+{
+  font-size: 1.4rem;
+}
+.options {
+  position: relative;
+  font-size: 16px;
+  color: rgb(247, 240, 240); /* Default color */
+  text-decoration: none; /* Remove underline by default */
+  transition: all 0.3s ease; /* Smooth transition for the effect */
+  cursor: pointer;
+}
+
+.options::before {
+  content:''; /* Create a pseudo-element for underline */
+  position: absolute;
+  width: 100%; /* Full width of parent */
+  height: 2px; /* Height of underline */
+  bottom: 0; /* Align to bottom of parent */
+  left: 0; /* Start from left */
+  background-color: transparent; /* Initially transparent */
+  transition: all 0.3s ease; /* Smooth transition for the effect */
+  transform-origin: left; /* Ensure transform origin from left */
+  transform: scaleX(0); /* Initial scale of 0, no width */
+}
+
+.options:hover::before {
+  background-color: rgb(236, 236, 109); 
+  transform: scaleX(1); /* Full width of underline */
+}
+
+/* Hover effect */
+.options:hover {
+  /* color: yellow; Change text color to bright yellow */
+  /* transform: translateX(-10px); Move text 10px to the left */
+  font-size: larger;
+}
+
+.options:hover ~ .options {
+  filter: blur(5px); /* Blur options after the hovered element */
+}
+
+.options:hover ~ .options::before {
+  width: 0; /* Hide underline for options after the hovered element */
+}
+
+.options:hover ~ .options:hover::before
+{
+  filter: blur(5px);
+}
+.options:hover ~ .options:hover {
+  filter: blur(5px); /* Blur options before the hovered element */
+}
+
+.options:hover ~ .options:hover::before {
+  filter: blur(5px); /* Hide underline for options before the hovered element */
+}
+
+
+.show
+{
+  display: block;
+}
+.hide{
+  display: none;
+}
+
+ .des_dropdown {
+  position: absolute;
+  left: 0;
+  top: 160%;
+  
+  /* background-color: aqua; */
+  width: 12rem;
+  background-color: rgba(0, 0, 0, 0.25);
+}
+
+.des_dropdown ul
+{
+  display: block;
+}
+.des_dropdown ul li{
+  padding: 2%;
+}
+.list {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  cursor: pointer;
+}
+
+.list-item {
+  font-size: 18px;
+  padding: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.list-item:hover {
+  transform: scale(1.2); /* Makes the item bigger on hover */
+}
+
+.list-item:hover::before {
+  content: '';
+  position: absolute;
+  bottom: -2px; /* Adjust as needed to position the underline */
+  left: -5px; /* Adjust as needed to position the underline */
+  width: calc(80% ); /* Covers the width with extra padding */
+  height: 3px; /* Thickness of the underline */
+  background-color: yellow; /* Yellow underline color */
+  transition: all 0.3s ease;
+}
+
+.list-item:hover ~ .list-item {
+  filter: blur(5px); /* Blur other list items on hover */
+}
+
+/* **************************************************** */
+
+/* Sidebar.css */
+
+.sidebar {
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  width: 300px;
+  background: rgba(255, 255, 255, 0.2); /* Slightly transparent for blur effect */
+  backdrop-filter: blur(10px); /* Apply blur to background */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  color: aliceblue;
+  transition: transform 0.3s ease-in-out;
+}
+.sidebar.closed {
+  transform: translateX(500px); /* Moves sidebar out of view */
+}
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar ul li{
+  margin: 60px;
+
+}
+
+.sidebar-item {
+  margin: 20px 0;
+}
+
+.sidebar-item a {
+  text-decoration: none;
+  color: aliceblue;
+  font-size: 18px;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+.hide{
+  display: none;
+}
+
+.sidebar-item a:hover {
+  color: #007BFF;
+}
+.close-btn {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.toggleIcon{
+  font-size:x-large;
+  font-weight: 300;
+  margin-left: 2%;
+  cursor: pointer;
+  
+}
+@media(max-width:950px)
+{
+  .hide-mob{
+    display: none;
+  }
+}
