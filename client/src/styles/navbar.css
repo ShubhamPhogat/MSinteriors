@@ -238,9 +238,18 @@ justify-content: space-between;
   cursor: pointer;
   
 }
+
+
+
+
+
+
 @media(max-width:950px)
 {
   .hide-mob{
     display: none;
   }
 }
+
+
+

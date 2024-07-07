@@ -21,7 +21,7 @@ const Navbar = ({ setScroll }) => {
   function naviToHome() {
     navigate("/");
   }
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState();
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
@@ -115,8 +115,8 @@ const Navbar = ({ setScroll }) => {
           <div className="cart hide-mob">
             <TiShoppingCart />
           </div>
-          <div className="profile hide-mob">
-            <CgProfile />
+          <div className="profile options hide-mob">
+            <CgProfile /> Sign In
           </div>
           <div onClick={toggleSidebar} className="toggleIcon">
             {<HiOutlineBars4 />}
