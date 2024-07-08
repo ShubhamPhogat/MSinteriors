@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { FaEnvelope, FaLock } from "react-icons/fa";
-import { Link } from "react-router-dom";
-import { loginUser } from "../Api/api"; // Make sure to import your API function
-import "../styles/user.css"; // Make sure to import your CSS file
-import {  toast } from 'react-toastify';
+import { Link, useNavigate } from "react-router-dom";
+import { loginUser } from "../Api/api";
+import "../styles/user.css";
+import { toast } from "react-toastify";
+import { useAuth } from "../Context/auth";
 
 const LoginForm = () => {
   const [formData, setFormData] = useState({
@@ -12,6 +13,8 @@ const LoginForm = () => {
   });
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const navigate = useNavigate();
+  const { login } = useAuth();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -30,17 +33,19 @@ const LoginForm = () => {
       const response = await loginUser(formData);
       if (response.status === 200) {
         setSuccess("Login successful!");
-        toast.success("Login")
-        console.log("login");
+        toast.success("Login successful!");
+        login(response.data.token);
         setFormData({
           email: "",
           password: "",
         });
+        navigate("/");
       } else {
         throw new Error("Unexpected response code");
       }
     } catch (error) {
       setError("Login failed. Please try again.");
+      toast.error("Login failed. Please try again.");
     }
   };
 

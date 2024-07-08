@@ -3,52 +3,35 @@ import "../styles/navbar.css";
 import { TiShoppingCart } from "react-icons/ti";
 import { CgProfile } from "react-icons/cg";
 import { IoMdArrowDropdown } from "react-icons/io";
-import { json, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { RxCross1 } from "react-icons/rx";
 import { HiOutlineBars4 } from "react-icons/hi2";
+import { useAuth } from "../Context/auth";
+
 
 const Navbar = ({ setScroll }) => {
   const navigate = useNavigate();
-  const [isOpen, setIsOpen] = useState();
+  const [isOpen, setIsOpen] = useState(false);
+  const { isLoggedIn, logout } = useAuth();
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
   };
 
-  function displayDropdown() {
-    var ele = document.getElementById("desdrop");
+  const displayDropdown = () => {
+    const ele = document.getElementById("desdrop");
     ele.classList.toggle("show");
     ele.classList.toggle("hide");
-    console.dir(ele);
-  }
+  };
 
-  function handleCLick() {
-    navigate("/kitchenSizeCalc");
-  }
-
-  function naviToHome() {
-    navigate("/");
-  }
-
-  function skipToMain(data) {
-    const ele = document.getElementById("scrollBar");
-    localStorage.setItem("selectedItem", JSON.stringify(data));
-    setScroll(data);
-    ele.scrollIntoView({ behavior: "smooth" });
-  }
-
-  function handleSignIn() {
-    navigate("/login");
-  }
-
-  function handleSignUp() {
-    navigate("/register");
-  }
+  const handleNavItemClick = (path) => {
+    navigate(path);
+  };
 
   return (
     <div>
       <div className="main-nav">
-        <div onClick={naviToHome} className="logo">
+        <div onClick={() => handleNavItemClick("/")} className="logo">
           <span>MS</span>interiors
         </div>
         <div className="nav-options hide-mob">
@@ -60,52 +43,28 @@ const Navbar = ({ setScroll }) => {
               </span>
               <div id="desdrop" className="des_dropdown hide">
                 <ul className="list">
-                  <li
-                    onClick={() => skipToMain("Living Room")}
-                    className="list-item"
-                  >
+                  <li onClick={() => setScroll("Living Room")} className="list-item">
                     Living room
                   </li>
-                  <li
-                    onClick={() => skipToMain("Wardrobe")}
-                    className="list-item"
-                  >
+                  <li onClick={() => setScroll("Wardrobe")} className="list-item">
                     Wardrobe
                   </li>
-                  <li
-                    onClick={() => skipToMain("Master Bedroom")}
-                    className="list-item"
-                  >
+                  <li onClick={() => setScroll("Master Bedroom")} className="list-item">
                     Bedroom
                   </li>
-                  <li
-                    onClick={() => skipToMain("Modular Kitchen")}
-                    className="list-item"
-                  >
+                  <li onClick={() => setScroll("Modular Kitchen")} className="list-item">
                     Kitchen
                   </li>
-                  <li
-                    onClick={() => skipToMain("Kids Room")}
-                    className="list-item"
-                  >
+                  <li onClick={() => setScroll("Kids Room")} className="list-item">
                     Kids Room
                   </li>
-                  <li
-                    onClick={() => skipToMain("Balcony")}
-                    className="list-item"
-                  >
+                  <li onClick={() => setScroll("Balcony")} className="list-item">
                     Balcony
                   </li>
-                  <li
-                    onClick={() => skipToMain("Pooja Ghar")}
-                    className="list-item"
-                  >
+                  <li onClick={() => setScroll("Pooja Ghar")} className="list-item">
                     Pooja Ghar
                   </li>
-                  <li
-                    onClick={() => skipToMain("Living Room")}
-                    className="list-item"
-                  >
+                  <li onClick={() => setScroll("Living Room")} className="list-item">
                     Bathroom
                   </li>
                 </ul>
@@ -113,7 +72,7 @@ const Navbar = ({ setScroll }) => {
             </li>
             <li className="options hide-mob">trends</li>
             <li className="options hide-mob">guides</li>
-            <li onClick={handleCLick} className="options">
+            <li onClick={() => handleNavItemClick("/kitchenSizeCalc")} className="options">
               Kitchen Price calculator
             </li>
           </ul>
@@ -122,12 +81,20 @@ const Navbar = ({ setScroll }) => {
           <div className="cart hide-mob">
             <TiShoppingCart />
           </div>
-          <div className="profile cart options hide-mob" onClick={handleSignIn}>
-            <CgProfile /> Sign In
-          </div>
-          <div className="sign-up options hide-mob" onClick={handleSignUp}>
-            <CgProfile /> Sign Up
-          </div>
+          {isLoggedIn ? (
+            <div className="profile cart options hide-mob" onClick={logout}>
+              <CgProfile /> Logout
+            </div>
+          ) : (
+            <>
+              <div className="profile cart options hide-mob" onClick={() => handleNavItemClick("/login")}>
+                <CgProfile /> Sign In
+              </div>
+              <div className="sign-up options hide-mob" onClick={() => handleNavItemClick("/register")}>
+                <CgProfile /> Sign Up
+              </div>
+            </>
+          )}
           <div onClick={toggleSidebar} className="toggleIcon">
             <HiOutlineBars4 />
           </div>
@@ -140,7 +107,6 @@ const Navbar = ({ setScroll }) => {
         <button className="close-btn" onClick={toggleSidebar}>
           <RxCross1 />
         </button>
-
         <ul>
           <li className="sidebar-item">
             <a href="#design-ideas">Design Ideas</a>
@@ -154,12 +120,20 @@ const Navbar = ({ setScroll }) => {
           <li className="sidebar-item">
             <a href="#kitchen-calculator">Kitchen Calculator</a>
           </li>
-          <li className="sidebar-item" onClick={handleSignIn}>
-            Sign In
-          </li>
-          <li className="sidebar-item" onClick={handleSignUp}>
-            Sign Up
-          </li>
+          {isLoggedIn ? (
+            <li className="sidebar-item" onClick={logout}>
+              Logout
+            </li>
+          ) : (
+            <>
+              <li className="sidebar-item" onClick={() => handleNavItemClick("/login")}>
+                Sign In
+              </li>
+              <li className="sidebar-item" onClick={() => handleNavItemClick("/register")}>
+                Sign Up
+              </li>
+            </>
+          )}
         </ul>
       </div>
     </div>
