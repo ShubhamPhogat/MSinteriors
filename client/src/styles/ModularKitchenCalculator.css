@@ -1,85 +1,132 @@
 /* src/ModularKitchenCalculator.css */
+
 .calculator-container {
-    padding: 20px;
-    background-color: 
-    #64b1c4;    
-    border-radius: 8px;
-    height: 100vh;
-  }
-.empty{
-    margin-bottom: 5rem;
+  padding: 20px;
+  background-color: #64b1c4;
+  border-radius: 8px;
+  min-height: 100vh;
+  box-sizing: border-box; /* Ensure padding is included in height calculation */
+  display: flex;
+  flex-direction: column;
 }
-  
+
+.empty {
+  margin-bottom: 5rem;
+}
+
+.steps-indicator {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.step {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 50%;
+  background-color: #ccc;
+  text-align: center;
+}
+
+.step.active {
+  background-color: #ff6f61;
+  color: #fff;
+}
+
+.shapes-container {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  flex-grow: 1; /* Allow the container to grow and fill available space */
+}
+
+.shape-card {
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  width: 200px;
+  cursor: pointer;
+  transition: border 0.3s;
+  border-radius: 64px;
+  background: #64b1c4;
+  box-shadow: 20px 20px 40px #477e8b,
+              -20px -20px 40px #81e4fd;
+  transition: transform 0.3s ease, border 0.3s ease;
+  margin: 10px; /* Add margin to create space between cards */
+}
+
+.shape-card.selected {
+  border: 2px solid #ff6f61;
+}
+
+.shape-image {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px;
+}
+
+.next-button {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background-color: #ff6f61;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.heading {
+  text-align: center;
+}
+
+.next-button:hover {
+  background-color: #e65b4f;
+}
+
+.shape-card:hover {
+  transform: scale(1.1); /* Scale the card by 10% on hover */
+  border: 2px solid #ff6f61; /* Optional: Change border color on hover */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
   .steps-indicator {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 20px;
+      flex-direction: column;
+      align-items: center;
   }
-  
+
   .step {
-    width: 30px;
-    height: 30px;
-    line-height: 30px;
-    border-radius: 50%;
-    background-color: #ccc;
-    text-align: center;
+      margin-bottom: 10px;
   }
-  
-  .step.active {
-    background-color: #ff6f61;
-    color: #fff;
-  }
-  
+
   .shapes-container {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 20px;
+      flex-direction: column;
+      align-items: center;
   }
-  
+
   .shape-card {
-    border: 2px solid #ccc;
-    border-radius: 8px;
-    padding: 20px;
-    text-align: center;
-    width: 200px;
-    cursor: pointer;
-    transition: border 0.3s;
-    border-radius: 64px;
-background: #64b1c4;
-box-shadow:  20px 20px 40px #477e8b,
-             -20px -20px 40px #81e4fd;
-             transition: transform 0.3s ease, border 0.3s ease;
+      width: 100%;
+      max-width: 300px;
   }
-  
-  .shape-card.selected {
-    border: 2px solid #ff6f61;
+}
+
+@media (max-width: 480px) {
+  .shape-card {
+      padding: 10px;
   }
-  
+
   .shape-image {
-    width: 100px;
-    height: 100px;
-    margin-bottom: 10px;
+      width: 80px;
+      height: 80px;
   }
-  
+
   .next-button {
-    display: block;
-    margin: 0 auto;
-    padding: 10px 20px;
-    background-color: #ff6f61;
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 16px;
+      font-size: 14px;
+      padding: 8px 16px;
   }
-  .heading{
-    text-align: center;
-  }
-  
-  .next-button:hover {
-    background-color: #e65b4f;
-  }
-  .shape-card:hover {
-    transform: scale(1.1); /* Scale the card by 10% on hover */
-    border: 2px solid #ff6f61; /* Optional: Change border color on hover */
-  }
+}
