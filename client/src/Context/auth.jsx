@@ -1,5 +1,5 @@
 import React, { createContext, useState, useContext, useEffect } from "react";
-
+import { useNavigate } from "react-router-dom";
 // Create a Context for the authentication
 const AuthContext = createContext();
 
@@ -14,6 +14,7 @@ const hardcodedAdmin = {
 export const AuthProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -33,7 +34,9 @@ export const AuthProvider = ({ children }) => {
     localStorage.removeItem("token");
     localStorage.removeItem("isAdmin");
     setIsLoggedIn(false);
+    
     setIsAdmin(false);
+    navigate("/"); // Redirect to home page after logout
   };
 
   return (
