@@ -12,6 +12,8 @@ import RegisterForm from "./Auth/Register";
 import { useState } from "react";
 import LoginForm from "./Auth/Login";
 import { ToastContainer } from "react-toastify";
+import KitchenGuide from "./pages/KitchenGuide";
+import KitchenInfo from "./pages/KitchenInfo";
 
 function App() {
   const [ScrollItem, SetScrollItem] = useState("");
@@ -27,6 +29,8 @@ function App() {
         <Route path="/kitchenSizeCalc" element={<ModularKitchenCalculator />} />
         <Route path="/submitForm" element={<SubmitForm />} />
         <Route path="/kitchenSizeCalc/*" element={<SizeSelection />} />
+        <Route path="/kitchenGuide/*" element={<KitchenGuide />} />
+        <Route path="/KitchenTypeInfo/*" element={<KitchenInfo />} />
       </Routes>
       <ToastContainer
         position="top-right"

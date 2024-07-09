@@ -45,6 +45,10 @@ const Navbar = ({ setScroll }) => {
     navigate("/register");
   }
 
+  function goToGuide() {
+    navigate("/kitchenGuide");
+  }
+
   return (
     <div>
       <div className="main-nav">
@@ -112,7 +116,9 @@ const Navbar = ({ setScroll }) => {
               </div>
             </li>
             <li className="options hide-mob">trends</li>
-            <li className="options hide-mob">guides</li>
+            <li onClick={goToGuide} className="options hide-mob">
+              guides
+            </li>
             <li onClick={handleCLick} className="options">
               Kitchen Price calculator
             </li>
