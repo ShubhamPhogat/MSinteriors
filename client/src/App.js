@@ -12,8 +12,8 @@ import RegisterForm from "./Auth/Register";
 import { useState } from "react";
 import LoginForm from "./Auth/Login";
 import AdminPage from "./Admin/adminpage";
-
-
+import UserDetailsCard from "./Admin/UploadCard";
+import UploadCard from "./Admin/UserDetailsCard";
 
 function App() {
   const [ScrollItem, SetScrollItem] = useState("");
@@ -30,8 +30,9 @@ function App() {
         <Route path="/submitForm" element={<SubmitForm />} />
         <Route path="/kitchenSizeCalc/*" element={<SizeSelection />} />
         <Route path="/admin" element={<AdminPage />} />
+        <Route path="/UserDetailsCard" element={<UserDetailsCard />} />
+        <Route path="/UploadCard" element={<UploadCard />} />
       </Routes>
-     
     </div>
   );
 }
