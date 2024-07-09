@@ -46,7 +46,7 @@ const UserDetailsCard = () => {
 
   const deleteUser = async (userId) => {
     try {
-      await axios.delete(`http://localhost:5000/api/user/${userId}`);
+      await axios.delete(`https://ms-backend.vercel.app/api/user/${userId}`);
       setUsers(users.filter((user) => user._id !== userId));
       message.success("User deleted successfully.");
     } catch (error) {

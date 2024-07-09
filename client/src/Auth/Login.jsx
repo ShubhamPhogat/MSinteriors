@@ -31,7 +31,7 @@ const LoginForm = () => {
 
     try {
       const { email, password } = formData;
-      if (email === "admin@example.com" && password === "admin123") {
+      if (email === "admin@gmail.com" && password === "admin123") {
         setSuccess("Admin login successful!");
         toast.success("Admin login successful!");
         login("admin-token", true);
