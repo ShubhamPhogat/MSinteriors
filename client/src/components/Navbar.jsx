@@ -26,6 +26,12 @@ const Navbar = ({ setScroll }) => {
   const handleNavItemClick = (path) => {
     navigate(path);
   };
+  function skipToMain(data) {
+    const ele = document.getElementById("scrollBar");
+    localStorage.setItem("selectedItem", JSON.stringify(data));
+    setScroll(data);
+    ele.scrollIntoView({ behavior: "smooth" });
+  }
 
   return (
     <div>
@@ -48,49 +54,49 @@ const Navbar = ({ setScroll }) => {
                   <div id="desdrop" className="des_dropdown hide">
                     <ul className="list">
                       <li
-                        onClick={() => setScroll("Living Room")}
+                        onClick={() => skipToMain("Living Room")}
                         className="list-item"
                       >
                         Living room
                       </li>
                       <li
-                        onClick={() => setScroll("Wardrobe")}
+                        onClick={() => skipToMain("Wardrobe")}
                         className="list-item"
                       >
                         Wardrobe
                       </li>
                       <li
-                        onClick={() => setScroll("Master Bedroom")}
+                        onClick={() => skipToMain("Master Bedroom")}
                         className="list-item"
                       >
                         Bedroom
                       </li>
                       <li
-                        onClick={() => setScroll("Modular Kitchen")}
+                        onClick={() => skipToMain("Modular Kitchen")}
                         className="list-item"
                       >
                         Kitchen
                       </li>
                       <li
-                        onClick={() => setScroll("Kids Room")}
+                        onClick={() => skipToMain("Kids Room")}
                         className="list-item"
                       >
                         Kids Room
                       </li>
                       <li
-                        onClick={() => setScroll("Balcony")}
+                        onClick={() => skipToMain("Balcony")}
                         className="list-item"
                       >
                         Balcony
                       </li>
                       <li
-                        onClick={() => setScroll("Pooja Ghar")}
+                        onClick={() => skipToMain("Pooja Ghar")}
                         className="list-item"
                       >
                         Pooja Ghar
                       </li>
                       <li
-                        onClick={() => setScroll("Living Room")}
+                        onClick={() => skipToMain("Living Room")}
                         className="list-item"
                       >
                         Bathroom
@@ -116,9 +122,6 @@ const Navbar = ({ setScroll }) => {
           </ul>
         </div>
         <div className="store">
-          <div className="cart hide-mob">
-            <TiShoppingCart />
-          </div>
           {isLoggedIn ? (
             <>
               {isAdmin && (

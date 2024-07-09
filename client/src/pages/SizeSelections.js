@@ -17,6 +17,9 @@ const SizeSelection = () => {
   function handleClick() {
     navigate("/kitchenSizeCalc/submitForm", { state: { sizeA, sizeB, sizeC } });
   }
+  function GoBack() {
+    navigate(-1);
+  }
 
   return (
     <div className="size-selection-container">
@@ -141,7 +144,9 @@ const SizeSelection = () => {
         </div>
       </div>
       <div className="buttons">
-        <button className="back-button">Back</button>
+        <button onClick={GoBack} className="next-button">
+          Back
+        </button>
         <button onClick={handleClick} className="next-button">
           Next
         </button>

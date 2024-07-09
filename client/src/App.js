@@ -31,7 +31,7 @@ function App() {
         <Route path="/register*" element={<RegisterForm />} />
         <Route path="/login*" element={<LoginForm />} />
         <Route path="/kitchenSizeCalc" element={<ModularKitchenCalculator />} />
-        <Route path="/submitForm" element={<SubmitForm />} />
+        <Route path="kitchenSizeCalc/submitForm" element={<SubmitForm />} />
         <Route path="/kitchenSizeCalc/*" element={<SizeSelection />} />
         <Route path="/admin" element={<AdminPage />} />
         <Route path="/UserDetailsCard" element={<UserDetailsCard />} />
