@@ -8,6 +8,25 @@ const app = express();
 // Connect Database
 connectDB();
 
+module.exports = (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader(
+    'Access-Control-Allow-Methods',
+    'GET, POST, OPTIONS, PUT, PATCH, DELETE'
+  );
+  res.setHeader(
+    'Access-Control-Allow-Headers',
+    'X-Requested-With,content-type'
+  );
+  res.setHeader('Access-Control-Allow-Credentials', true);
+
+  if (req.method === 'OPTIONS') {
+    res.status(200).end();
+    return;
+  }
+
+  res.json({ message: 'Hello from Vercel!' });
+};
 
 // Middleware
 const corsOptions = {
@@ -18,7 +37,6 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 app.options('*', cors(corsOptions)); // enable pre-flight across-the-board
-
 
 app.use(express.json());
 
