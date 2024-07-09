@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseurl = "https://ms-backend.vercel.app/api/";
+const baseurl = "https://ms-backend.vercel.app/";
 
 export const registerUser = async (formData) => {
   try {
