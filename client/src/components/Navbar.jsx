@@ -99,7 +99,12 @@ const Navbar = ({ setScroll }) => {
                   </div>
                 </li>
                 <li className="options hide-mob">trends</li>
-                <li className="options hide-mob">guides</li>
+                <li
+                  onClick={() => handleNavItemClick("./kitchenGuide")}
+                  className="options hide-mob"
+                >
+                  guides
+                </li>
                 <li
                   onClick={() => handleNavItemClick("/kitchenSizeCalc")}
                   className="options"

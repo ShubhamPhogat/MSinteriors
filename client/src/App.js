@@ -14,6 +14,10 @@ import LoginForm from "./Auth/Login";
 import AdminPage from "./Admin/adminpage";
 import UserDetailsCard from "./Admin/UploadCard";
 import UploadCard from "./Admin/UserDetailsCard";
+import KitchenGuide from "./pages/KitchenGuide.js";
+import KitchenInfo from "./pages/KitchenInfo.js";
+import Footer from "./components/Footer.jsx";
+import FooterBottomSection from "./components/FooterBottomSection.jsx";
 
 function App() {
   const [ScrollItem, SetScrollItem] = useState("");
@@ -32,7 +36,12 @@ function App() {
         <Route path="/admin" element={<AdminPage />} />
         <Route path="/UserDetailsCard" element={<UserDetailsCard />} />
         <Route path="/UploadCard" element={<UploadCard />} />
+        <Route path="/kitchenGuide/*" element={<KitchenGuide />} />
+        <Route path="/KitchenTypeInfo/*" element={<KitchenInfo />} />
       </Routes>
+
+      <Footer />
+      <FooterBottomSection />
     </div>
   );
 }
