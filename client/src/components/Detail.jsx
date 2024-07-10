@@ -3,6 +3,7 @@ import ImageSection from "./ImageSection";
 import FormSection from "./FormSection";
 import "../styles/Detail.css"; // Import CSS for styling
 import { useLocation } from "react-router-dom";
+import MoreDesigns from "./MoreDesigns";
 
 const Detail = () => {
   const location = useLocation();
@@ -13,6 +14,7 @@ const Detail = () => {
       <div className="empty"></div>
       <ImageSection src={src} text={text} arrInd={arrInd} items={items} />
       <FormSection />
+      <MoreDesigns array={items} />
     </div>
   );
 };

@@ -2,6 +2,8 @@
 import React, { useState } from "react";
 import "../styles/SizeSelection.css";
 import { useLocation, useNavigate } from "react-router-dom";
+import { Lshape, Parallel, Straight, Ushape } from "../assesets";
+import { IoMdTrendingUp } from "react-icons/io";
 
 const SizeSelection = () => {
   const [sizeA, setSizeA] = useState({ feet: "", inches: "" });
@@ -20,6 +22,11 @@ const SizeSelection = () => {
   function GoBack() {
     navigate(-1);
   }
+  let imgUrl = "";
+  if (shape === "U_Shape") imgUrl = Ushape;
+  else if (shape === "L_Shape") imgUrl = Lshape;
+  else if (shape === "Straight") imgUrl = Straight;
+  else imgUrl = Parallel;
 
   return (
     <div className="size-selection-container">
@@ -28,11 +35,7 @@ const SizeSelection = () => {
       <div className="size-selection-content">
         <div className="image-and-options">
           <div className="shape_img">
-            <img
-              src="/path/to/kitchen-image.png"
-              alt="Kitchen Layout"
-              className="kitchen-image"
-            />
+            <img alt="Kitchen Layout" src={imgUrl} className="kitchen-image" />
           </div>
           <div className="inputOptions">
             <div className="option">

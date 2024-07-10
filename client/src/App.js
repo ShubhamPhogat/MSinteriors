@@ -18,6 +18,8 @@ import KitchenGuide from "./pages/KitchenGuide.js";
 import KitchenInfo from "./pages/KitchenInfo.js";
 import Footer from "./components/Footer.jsx";
 import FooterBottomSection from "./components/FooterBottomSection.jsx";
+import InteriorDesignCostEstimator from "./pages/InteriorDesignCostEstimator.js";
+import InteriorQuantityCalc from "./pages/InteriorQuantityCalc.js";
 
 function App() {
   const [ScrollItem, SetScrollItem] = useState("");
@@ -38,6 +40,18 @@ function App() {
         <Route path="/UploadCard" element={<UploadCard />} />
         <Route path="/kitchenGuide/*" element={<KitchenGuide />} />
         <Route path="/KitchenTypeInfo/*" element={<KitchenInfo />} />
+        <Route
+          path="/EstimateCost/*"
+          element={<InteriorDesignCostEstimator />}
+        />
+        <Route
+          path="/EstimateCost/quantityCalc"
+          element={<InteriorQuantityCalc />}
+        />
+        <Route
+          path="/EstimateCost/quantityCalc/SubmitForm"
+          element={<SubmitForm />}
+        />
       </Routes>
 
       <Footer />
