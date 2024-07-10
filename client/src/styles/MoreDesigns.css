@@ -1,0 +1,128 @@
+.filters-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 300px;
+  margin: 0 auto;
+  /* background-color: antiquewhite; */
+}
+
+.filter {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+select {
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.DesingContainer {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  padding: 1rem;
+  box-sizing: border-box;
+  /* background-color: antiquewhite; */
+}
+.relatedOptions{
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+}
+
+.filterOptions {
+    width: 100vw;
+
+  display: grid;
+  grid-template-columns: 10rem 1fr 1fr 1fr 1fr 10rem;
+  align-items: center;
+  justify-content: start;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.submitBtn {
+  margin-top: 3rem;
+  font-size: 1rem;
+  border-radius: 8%;
+  border: none;
+  width: 5rem;
+  height: 2.5rem;
+  background-color: orange;
+}
+
+/* Media Queries */
+@media (min-width: 600px) {
+  .filters-container {
+    max-width: 500px;
+  }
+
+  .filterOptions {
+    max-width: 500px;
+  }
+}
+
+@media (min-width: 768px) {
+  .filters-container {
+    max-width: 700px;
+  }
+
+  .filterOptions {
+    max-width: 700px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .filters-container {
+    max-width: 900px;
+  }
+
+  .filterOptions {
+    max-width: 900px;
+  }
+}
+
+  
+  /* Responsive styli
+ng */
+  @media (min-width: 600px) {
+    .filters-container {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    .filter {
+      flex: 1;
+      margin-right: 1rem;
+    }
+    .filter:last-child {
+      margin-right: 0;
+    }
+  }
+
+  @media(max-width:600px)
+  {
+    .filterOptions{
+        grid-template-columns: 1fr;
+
+    }
+    .filterOptions select{
+        margin-top: 7rem;
+        margin-bottom: 7rem;
+    }
+  }
+  
