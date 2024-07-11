@@ -1,4 +1,5 @@
 const User = require('../models/User');
+
 const express = require('express');
 
 // Get all users
@@ -19,5 +20,8 @@ const deleteUser = async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 };
+
+
+
 
 module.exports = { getAllUsers, deleteUser };
