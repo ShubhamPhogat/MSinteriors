@@ -58,7 +58,7 @@ const LoginForm = () => {
   };
 
   return (
-    <div className="form-container">
+    <div className="form-Container">
       <div className="form-inner-container">
         <h2 className="form-title">Login</h2>
         {error && <div className="alert error">{error}</div>}

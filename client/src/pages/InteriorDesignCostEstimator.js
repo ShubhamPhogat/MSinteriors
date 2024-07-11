@@ -21,7 +21,9 @@ const InteriorDesignCostEstimator = () => {
   };
   let navigate = useNavigate();
   function navi() {
-    navigate("./quantityCalc");
+    navigate("./quantityCalc", {
+      state: { selectedPropertyType, selectedPurpose },
+    });
   }
 
   const handlePurposeClick = (purpose) => {

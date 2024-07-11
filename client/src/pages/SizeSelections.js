@@ -17,7 +17,9 @@ const SizeSelection = () => {
   };
   const navigate = useNavigate();
   function handleClick() {
-    navigate("/kitchenSizeCalc/submitForm", { state: { sizeA, sizeB, sizeC } });
+    navigate("/kitchenSizeCalc/submitForm", {
+      state: { sizeA, sizeB, sizeC, shape },
+    });
   }
   function GoBack() {
     navigate(-1);
@@ -58,6 +60,27 @@ const SizeSelection = () => {
                 <option className="opt" value="3">
                   3 ft
                 </option>
+                <option className="opt" value="4">
+                  4 ft
+                </option>
+                <option className="opt" value="5">
+                  5 ft
+                </option>
+                <option className="opt" value="6">
+                  6 ft
+                </option>
+                <option className="opt" value="7">
+                  7 ft
+                </option>
+                <option className="opt" value="8">
+                  8 ft
+                </option>
+                <option className="opt" value="9">
+                  9 ft
+                </option>
+                <option className="opt" value="10">
+                  10 ft
+                </option>
                 {/* Add more options as needed */}
               </select>
               <select
@@ -70,6 +93,13 @@ const SizeSelection = () => {
                 <option value="1">1 in</option>
                 <option value="2">2 in</option>
                 <option value="3">3 in</option>
+                <option value="4">4 in</option>
+                <option value="5">5 in</option>
+                <option value="6">6 in</option>
+                <option value="7">7 in</option>
+                <option value="8">8 in</option>
+                <option value="9">9 in</option>
+                <option value="10">10 in</option>
                 {/* Add more options as needed */}
               </select>
             </div>
@@ -80,7 +110,7 @@ const SizeSelection = () => {
                   className="select"
                   name="feet"
                   onChange={(e) => handleSizeChange(e, setSizeB)}
-                  value={sizeA.feet}
+                  value={sizeB.feet}
                 >
                   <option className="opt" value="">
                     Choose Size (in feet)
@@ -94,18 +124,46 @@ const SizeSelection = () => {
                   <option className="opt" value="3">
                     3 ft
                   </option>
+                  <option className="opt" value="4">
+                    4 ft
+                  </option>
+                  <option className="opt" value="5">
+                    5 ft
+                  </option>
+                  <option className="opt" value="6">
+                    6 ft
+                  </option>
+                  <option className="opt" value="7">
+                    7 ft
+                  </option>
+                  <option className="opt" value="8">
+                    8 ft
+                  </option>
+                  <option className="opt" value="9">
+                    9 ft
+                  </option>
+                  <option className="opt" value="10">
+                    10 ft
+                  </option>
                   {/* Add more options as needed */}
                 </select>
                 <select
                   name="inches"
                   className="select"
                   onChange={(e) => handleSizeChange(e, setSizeB)}
-                  value={sizeA.inches}
+                  value={sizeB.inches}
                 >
                   <option value="">Choose Size (in inches)</option>
                   <option value="1">1 in</option>
                   <option value="2">2 in</option>
                   <option value="3">3 in</option>
+                  <option value="4">4 in</option>
+                  <option value="5">5 in</option>
+                  <option value="6">6 in</option>
+                  <option value="7">7 in</option>
+                  <option value="8">8 in</option>
+                  <option value="9">9 in</option>
+                  <option value="10">10 in</option>
                   {/* Add more options as needed */}
                 </select>
               </div>
@@ -119,24 +177,58 @@ const SizeSelection = () => {
                   className="select"
                   name="feet"
                   onChange={(e) => handleSizeChange(e, setSizeC)}
-                  value={sizeB.feet}
+                  value={sizeC.feet}
                 >
                   <option value="">Choose Size (in feet)</option>
-                  <option value="1">1 ft</option>
-                  <option value="2">2 ft</option>
-                  <option value="3">3 ft</option>
+                  <option className="opt" value="1">
+                    1 ft
+                  </option>
+                  <option className="opt" value="2">
+                    2 ft
+                  </option>
+                  <option className="opt" value="3">
+                    3 ft
+                  </option>
+                  <option className="opt" value="4">
+                    4 ft
+                  </option>
+                  <option className="opt" value="5">
+                    5 ft
+                  </option>
+                  <option className="opt" value="6">
+                    6 ft
+                  </option>
+                  <option className="opt" value="7">
+                    7 ft
+                  </option>
+                  <option className="opt" value="8">
+                    8 ft
+                  </option>
+                  <option className="opt" value="9">
+                    9 ft
+                  </option>
+                  <option className="opt" value="10">
+                    10 ft
+                  </option>
                   {/* Add more options as needed */}
                 </select>
                 <select
                   name="inches"
                   className="select"
                   onChange={(e) => handleSizeChange(e, setSizeC)}
-                  value={sizeB.inches}
+                  value={sizeC.inches}
                 >
                   <option value="">Choose Size (in inches)</option>
                   <option value="1">1 in</option>
                   <option value="2">2 in</option>
                   <option value="3">3 in</option>
+                  <option value="4">4 in</option>
+                  <option value="5">5 in</option>
+                  <option value="6">6 in</option>
+                  <option value="7">7 in</option>
+                  <option value="8">8 in</option>
+                  <option value="9">9 in</option>
+                  <option value="10">10 in</option>
                   {/* Add more options as needed */}
                 </select>
               </div>

@@ -20,7 +20,7 @@ const FooterBottomSection = () => {
           </p>
         </div>
         <div className="emi">
-          <h4>No Cost EMI Option Available Up to 10 Lacs**</h4>
+          <h4>Providing Services from 2002</h4>
           <p>Get in touch with our designers to know more...</p>
         </div>
       </div>
@@ -58,9 +58,9 @@ const FooterBottomSection = () => {
           <div className="column">
             <h4>Address</h4>
             <address>
-              3B, Rajendra Nagar, Pusa Road, <br />
-              New Delhi, Central Delhi DL <br />
-              110060 IN
+              LG-14 SOMDUTT CHAMBER-1, <br />
+              BHIKAJI CAMA PALACE <br />
+              NEW DELHI-110066
             </address>
           </div>
           <div className="column">

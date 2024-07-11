@@ -1,132 +1,106 @@
-/* src/ModularKitchenCalculator.css */
-
-.calculator-container {
-  padding: 20px;
-  background-color: #64b1c4;
-  border-radius: 8px;
-  min-height: 100vh;
-  box-sizing: border-box; /* Ensure padding is included in height calculation */
-  display: flex;
-  flex-direction: column;
+.kitchen-shape-selector {
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
 }
 
-.empty {
-  margin-bottom: 5rem;
+.header {
+  background-color: #fce4ec;
+  padding: 1rem;
 }
 
-.steps-indicator {
+.steps {
   display: flex;
-  justify-content: space-around;
-  margin-bottom: 20px;
+  justify-content: center;
+  margin-top: 1rem;
+  flex-wrap: wrap;
 }
 
 .step {
-  width: 30px;
-  height: 30px;
-  line-height: 30px;
-  border-radius: 50%;
-  background-color: #ccc;
-  text-align: center;
+  margin: 0.5rem;
+  position: relative;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  background-color: #ffebee;
 }
 
 .step.active {
-  background-color: #ff6f61;
-  color: #fff;
+  background-color: #f8bbd0;
 }
 
-.shapes-container {
+.shape-options {
   display: flex;
   justify-content: space-around;
-  margin-bottom: 20px;
   flex-wrap: wrap;
-  flex-grow: 1; /* Allow the container to grow and fill available space */
+  margin-top: 2rem;
 }
 
-.shape-card {
-  border: 2px solid #ccc;
-  border-radius: 8px;
-  padding: 20px;
-  text-align: center;
-  width: 200px;
+.shape-option {
+  flex: 1 1 22%;
+  margin: 1rem;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 1rem;
   cursor: pointer;
-  transition: border 0.3s;
-  border-radius: 64px;
-  background: #64b1c4;
-  box-shadow: 20px 20px 40px #477e8b,
-              -20px -20px 40px #81e4fd;
-  transition: transform 0.3s ease, border 0.3s ease;
-  margin: 10px; /* Add margin to create space between cards */
+  transition: transform 0.2s ease-in-out;
+  box-sizing: border-box;
 }
 
-.shape-card.selected {
-  border: 2px solid #ff6f61;
+.shape-option img {
+  max-width: 100%;
+  height: auto;
 }
 
-.shape-image {
-  width: 100px;
-  height: 100px;
-  margin-bottom: 10px;
+.shape-option h3 {
+  margin-top: 1rem;
 }
 
-.next-button {
-  display: block;
-  margin: 20px auto;
-  padding: 10px 20px;
-  background-color: #ff6f61;
-  color: #fff;
+.shape-option p {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.shape-option.selected {
+  border-color: #f06292;
+  transform: scale(1.05);
+}
+
+.next-btn {
+  margin-top: 2rem;
+  padding: 0.5rem 2rem;
   border: none;
-  border-radius: 8px;
+  background-color: #f06292;
+  color: #fff;
+  border-radius: 1rem;
   cursor: pointer;
-  font-size: 16px;
+  transition: background-color 0.2s ease-in-out;
 }
 
-.heading {
-  text-align: center;
+.next-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
 }
 
-.next-button:hover {
-  background-color: #e65b4f;
+@media (max-width: 1024px) {
+  .shape-option {
+    flex: 1 1 45%;
+  }
 }
 
-.shape-card:hover {
-  transform: scale(1.1); /* Scale the card by 10% on hover */
-  border: 2px solid #ff6f61; /* Optional: Change border color on hover */
-}
-
-/* Responsive Styles */
 @media (max-width: 768px) {
-  .steps-indicator {
-      flex-direction: column;
-      align-items: center;
-  }
-
-  .step {
-      margin-bottom: 10px;
-  }
-
-  .shapes-container {
-      flex-direction: column;
-      align-items: center;
-  }
-
-  .shape-card {
-      width: 100%;
-      max-width: 300px;
+  .shape-option {
+    flex: 1 1 100%;
   }
 }
 
 @media (max-width: 480px) {
-  .shape-card {
-      padding: 10px;
+  .shape-options {
+    flex-direction: column;
+    align-items: center;
   }
 
-  .shape-image {
-      width: 80px;
-      height: 80px;
-  }
-
-  .next-button {
-      font-size: 14px;
-      padding: 8px 16px;
+  .shape-option {
+    margin: 1rem 0;
   }
 }
