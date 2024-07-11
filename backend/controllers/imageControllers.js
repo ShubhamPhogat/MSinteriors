@@ -1,5 +1,5 @@
 const Image = require('../models/Upload');
-
+const express = require('express');
 // Add a new image
 const addImage = async (req, res) => {
   try {

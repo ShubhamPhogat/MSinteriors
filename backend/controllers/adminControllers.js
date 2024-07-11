@@ -1,5 +1,5 @@
 const User = require('../models/User');
-const Image = require('../models/Upload'); 
+
 const express = require('express');
 
 // Get all users
