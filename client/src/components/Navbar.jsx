@@ -175,13 +175,22 @@ const Navbar = ({ setScroll }) => {
               <li className="sidebar-item">
                 <a href="#design-ideas">Design Ideas</a>
               </li>
-              <li className="sidebar-item">
-                <a href="#trends">Trends</a>
+              <li
+                onClick={() => handleNavItemClick("./EstimateCost/*")}
+                className="sidebar-item"
+              >
+                <a href="#trends">Free Estimate</a>
               </li>
-              <li className="sidebar-item">
+              <li
+                onClick={() => handleNavItemClick("./kitchenGuide")}
+                className="sidebar-item"
+              >
                 <a href="#guides">Guides</a>
               </li>
-              <li className="sidebar-item">
+              <li
+                onClick={() => handleNavItemClick("/kitchenSizeCalc")}
+                className="sidebar-item"
+              >
                 <a href="#kitchen-calculator">Kitchen Calculator</a>
               </li>
             </>

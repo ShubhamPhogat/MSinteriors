@@ -50,7 +50,7 @@ const RegisterForm = () => {
   };
 
   return (
-    <div className="form-container">
+    <div className="form-Container">
       <div className="form-inner-container">
         <h2 className="form-title">Register</h2>
         {error && <div className="alert error">{error}</div>}
@@ -116,7 +116,9 @@ const RegisterForm = () => {
               />
             </div>
           </div>
-          <button type="submit" className="submit-button">Register</button>
+          <button type="submit" className="submit-button">
+            Register
+          </button>
         </form>
       </div>
     </div>

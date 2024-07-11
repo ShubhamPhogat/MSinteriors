@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../styles/FormSection.css"; // Import CSS for styling
+// import SubmitForm from "./SubmitForm";
 
 const FormSection = () => {
   const [formData, setFormData] = useState({
@@ -26,64 +27,13 @@ const FormSection = () => {
   };
 
   return (
-    <form className="form-section" onSubmit={handleSubmit}>
-      <h2>Meet the Designer</h2>
-      <input
-        type="text"
-        name="name"
-        placeholder="Name"
-        value={formData.name}
-        onChange={handleChange}
-      />
-      <div className="mobile-input">
-        <input type="text" value="+91" readOnly />
-        <input
-          type="text"
-          name="mobile"
-          placeholder="Mobile"
-          value={formData.mobile}
-          onChange={handleChange}
-        />
+    <div className="meetingForm">
+      <h1>Talk to the Designer</h1>
+      <div className="input-data">
+        <div className="inner" />
+        <input type="submit" className="SubmitFormBtn" defaultValue="submit" />
       </div>
-      <input
-        type="email"
-        name="email"
-        placeholder="Email"
-        value={formData.email}
-        onChange={handleChange}
-      />
-      <select name="city" value={formData.city} onChange={handleChange}>
-        <option value="" disabled>
-          Choose City
-        </option>
-        <option value="City1">City1</option>
-        <option value="City2">City2</option>
-        {/* Add more cities */}
-      </select>
-      <select name="interest" value={formData.interest} onChange={handleChange}>
-        <option value="" disabled>
-          I'm Interested in Interiors For
-        </option>
-        <option value="Living Room">Living Room</option>
-        <option value="Bedroom">Bedroom</option>
-        {/* Add more interests */}
-      </select>
-      <label>
-        <input
-          type="checkbox"
-          name="whatsapp"
-          checked={formData.whatsapp}
-          onChange={handleChange}
-        />
-        You can reach me on WhatsApp
-      </label>
-      <button type="submit">Talk To Our Designer</button>
-      <p>
-        By submitting this form, you agree to the{" "}
-        <a href="/privacy">privacy policy</a> and{" "}
-        <a href="/terms">terms of use</a>.
-      </p>
-    </form>
+    </div>
   );
 };
 

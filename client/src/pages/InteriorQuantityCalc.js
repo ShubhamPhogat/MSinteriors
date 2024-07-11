@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import "../styles/quantityCalc.css";
 import { estimateSvg1 } from "../assesets";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const InteriorQuantityCalc = () => {
   let navigate = useNavigate();
+  let location = useLocation();
+  let { selectedPropertyType, selectedPurpose } = location.state || {};
   const [quantities, setQuantities] = useState({
     modularKitchen: 0,
     wardrobe: 0,
@@ -13,6 +15,12 @@ const InteriorQuantityCalc = () => {
     falseCeiling: 0,
     painting: 0,
   });
+
+  function navi() {
+    navigate("./SubmitForm", {
+      state: { ...quantities, selectedPropertyType, selectedPurpose },
+    });
+  }
 
   const handleIncrement = (item) => {
     setQuantities({ ...quantities, [item]: quantities[item] + 1 });
@@ -50,21 +58,16 @@ const InteriorQuantityCalc = () => {
               </div>
             ))}
           </div>
-          <div className="buttons">
+          <div className="Buttons">
             <button
               onClick={() => {
                 navigate(-1);
               }}
-              className="back-button"
+              className="backButton"
             >
               BACK
             </button>
-            <button
-              onClick={() => {
-                navigate("./SubmitForm");
-              }}
-              className="next-button"
-            >
+            <button onClick={navi} className="nextButton">
               NEXT
             </button>
           </div>

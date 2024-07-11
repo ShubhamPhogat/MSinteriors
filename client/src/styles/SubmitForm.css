@@ -289,14 +289,23 @@ form .form-row .textarea {
     cursor: pointer;
     position: relative;
     z-index: 2;
-  }
+  } 
+  
   .form-row {
     display: flex;
     flex-direction: column;
     /* padding-bottom: 40px; */
   }
 
-  .r-inp {
-    /* padding-top: 40px; */
-  }
+  
+}
+.vanish{
+  display: none;
+  color: white;
+}
+.vanish input{
+  color: white !important;
+}
+.vanishEle{
+  color: white;
 }

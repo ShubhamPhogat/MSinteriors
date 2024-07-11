@@ -92,10 +92,12 @@ select {
 }
 
 .buttons {
-  display: flex;
+  display: grid;
+
+grid-template-columns: 1fr 1fr; 
   justify-content: space-between;
   margin-top: 20px;
-  width: 70%;
+  width: 10%;
   flex-wrap: wrap; /* Allow wrapping on smaller screens */
 }
 
@@ -105,6 +107,7 @@ select {
   background-color: #f8d7da;
   color: #721c24;
   cursor: pointer;
+  
 }
 
 .back-button:hover, .next-button:hover {

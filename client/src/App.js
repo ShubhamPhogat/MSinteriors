@@ -52,6 +52,7 @@ function App() {
           path="/EstimateCost/quantityCalc/SubmitForm"
           element={<SubmitForm />}
         />
+        <Route path="/SubmitForm/*" element={<SubmitForm />} />
       </Routes>
 
       <Footer />

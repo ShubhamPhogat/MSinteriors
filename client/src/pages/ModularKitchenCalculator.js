@@ -36,58 +36,57 @@ const kitchenShapes = [
 
 const ModularKitchenCalculator = () => {
   const [selectedShape, setSelectedShape] = useState(null);
-  const [currentStep, setCurrentStep] = useState(1);
   const navigate = useNavigate();
+
   const handleShapeSelect = (shape) => {
     setSelectedShape(shape);
   };
 
   const handleNextStep = () => {
-    const url = `./${selectedShape}`;
-    navigate(url, { state: selectedShape });
-    setCurrentStep(currentStep + 1);
+    if (selectedShape) {
+      const url = `./${selectedShape}`;
+      navigate(url, { state: selectedShape });
+    }
   };
 
   return (
-    <div className="calculator-container">
-      <div className="empty"></div>
-      <div className="steps-indicator">
-        <span className={`step ${currentStep === 1 ? "active" : ""}`}>1</span>
-        <span className={`step ${currentStep === 2 ? "active" : ""}`}>2</span>
-        <span className={`step ${currentStep === 3 ? "active" : ""}`}>3</span>
+    <div className="kitchen-shape-selector">
+      <div className="header">
+        <h1>Modular Kitchen Cost Calculator</h1>
+        <div className="steps">
+          <span className="step active">1. Select Shape</span>
+          <span className="step">2. Enter Size</span>
+          <span className="step">3. Contact Your Designer</span>
+        </div>
       </div>
-
-      <h1
-        className="heading
-      "
-      >
-        Please Select Shape of your Kitchen
-      </h1>
-
-      <div className="shapes-container">
-        {kitchenShapes.map((shape, index) => (
+      <h2>Please Select Shape of your Kitchen</h2>
+      <div className="shape-options">
+        {kitchenShapes.map((shape) => (
           <div
-            key={index}
-            className={`shape-card ${
-              selectedShape === shape.name ? "selected" : ""
+            key={shape.index}
+            className={`shape-option ${
+              selectedShape === shape ? "selected" : ""
             }`}
-            onClick={() => handleShapeSelect(shape.name)}
+            onClick={() => handleShapeSelect(shape)}
           >
-            <img src={shape.image} alt={shape.name} className="shape-image" />
-            <h3>{shape.name}</h3>
+            <img src={shape.image} alt={shape.name} />
+            <h3>{shape.name.replace("_", " ")}</h3>
             <p>{shape.description}</p>
             <input
               type="radio"
               name="shape"
-              checked={selectedShape === shape.name}
-              onChange={() => handleShapeSelect(shape.name)}
+              checked={selectedShape === shape}
+              readOnly
             />
           </div>
         ))}
       </div>
-
-      <button className="next-button" onClick={handleNextStep}>
-        Next &rarr;
+      <button
+        className="next-btn"
+        onClick={handleNextStep}
+        disabled={!selectedShape}
+      >
+        Next
       </button>
     </div>
   );

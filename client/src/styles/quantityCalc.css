@@ -43,13 +43,13 @@
     background-color: #4caf50;
   }
   
-  .buttons {
+  .Buttons {
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
   }
   
-  .back-button, .next-button {
+  .backButton, .nextButton {
     background-color: #ff6f61;
     color: white;
     border: none;
@@ -59,7 +59,7 @@
     transition: background-color 0.3s;
   }
   
-  .back-button:hover, .next-button:hover {
+  .Back-button:hover, .nextButton:hover {
     background-color: #4caf50;
   }
   
@@ -80,11 +80,11 @@
       margin-top: 5px;
     }
   
-    .buttons {
+    .Buttons {
       flex-direction: column;
     }
   
-    .back-button, .next-button {
+    .backButton, .nextButton {
       width: 100%;
       margin-bottom: 10px;
     }
