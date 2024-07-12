@@ -30,31 +30,32 @@ import {
 } from "../assesets/index.js";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import ImageCard from "../Dummy-components/GetCard.js";
 
 const Body = ({ selectedScroll }) => {
   // const [data, setData] = useState(null);
   // const [filteredArray, setFilteredArray] = useState({});
 
   // useEffect(() => {
-  //   setIsLoading(true);
-  //   axios
-  //     .get("http://localhost:5000/api/images")
-  //     .then((response) => {
-  //       setData(response.data);
-  //       setIsLoading(false);
+  // setIsLoading(true);
+  // axios
+  //   .get("http://localhost:5000/api/images")
+  //   .then((response) => {
+  //     setData(response.data);
+  // setIsLoading(false);
 
-  //       if (type) {
-  //         setFilteredArray(() => {
-  //           return data.filter((item) => {
-  //             return item.type === type;
-  //           });
-  //         });
-  //       }
+  // if (type) {
+  //   setFilteredArray(() => {
+  //     return data.filter((item) => {
+  //       return item.type === type;
+  //     });
+  //   });
+  // }
   //     })
   //     .catch((error) => {
   //       console.error("Error fetching data: ", error);
-  //       setError(error);
-  //       setIsLoading(false);
+  //       // setError(error);
+  //       // setIsLoading(false);
   //     });
   // }, []);
   let data = [
@@ -92,7 +93,7 @@ const Body = ({ selectedScroll }) => {
     },
   ];
 
-  const [Design, setDesign] = useState("Bedroom");
+  const [Design, setDesign] = useState(null);
   const [filteredArray, setfilteredArray] = useState(data);
 
   // navigate ***************
@@ -165,8 +166,8 @@ const Body = ({ selectedScroll }) => {
       </div>
       <div className="imgGallery">
         {/* {console.log("this is des", Design)} */}
-        <GetCard value={Design} />
-        <GetCard />
+        <ImageCard value={Design || "Bedroom"} />
+        <ImageCard />
       </div>
     </div>
   );

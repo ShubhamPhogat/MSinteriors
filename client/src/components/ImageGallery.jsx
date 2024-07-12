@@ -154,7 +154,7 @@ const ImageGallery = ({ items }) => {
   // console.log("this is des", props.value.item);
   //   let index = 1;
   // let filteredItems = images.filter((item) => item.type === props.value.item);
-
+  console.log("items", items, typeof items);
   return (
     <div className="image-gallery">
       {items.map((image, index) => (
