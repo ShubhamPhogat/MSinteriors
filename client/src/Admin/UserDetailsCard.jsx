@@ -44,7 +44,7 @@ const UploadCard = () => {
     <div className="admin-container">
       <Card title="Add Image" className="upload-card">
       <Input
-          placeholder="Type"
+          placeholder="type"
           name="type"
           value={formData.type}
           onChange={handleChange}
