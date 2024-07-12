@@ -1,15 +1,28 @@
 import React, { useEffect, useRef } from "react";
 import "../styles/Footer.css";
+import {
+  anchor,
+  asianPaints,
+  berger,
+  elica,
+  finolex,
+  hettich,
+  hindware,
+  legrand,
+  roca,
+} from "../assesets";
 
 const Footer = () => {
   const logos = [
-    { src: "path_to_logo/anchor.png", alt: "Anchor" },
-    { src: "path_to_logo/asianpaints.png", alt: "Asian Paints" },
-    { src: "path_to_logo/berger.png", alt: "Berger" },
-    { src: "path_to_logo/ebco.png", alt: "Ebco" },
-    { src: "path_to_logo/elica.png", alt: "Elica" },
-    { src: "path_to_logo/hettich.png", alt: "Hettich" },
-    { src: "path_to_logo/eglu.png", alt: "Eglu" },
+    { src: anchor, alt: "Anchor" },
+    { src: asianPaints, alt: "Asian Paints" },
+    { src: berger, alt: "Berger" },
+    { src: hindware, alt: "Hindware" },
+    { src: elica, alt: "Elica" },
+    { src: hettich, alt: "Hettich" },
+    { src: roca, alt: "Roca" },
+    { src: legrand, alt: "legrand" },
+    { src: finolex, alt: "finolex" },
   ];
 
   const scrollContainerRef = useRef(null);

@@ -1,6 +1,8 @@
 import React from "react";
 import "../styles/FooterBottomSection.css";
-
+import { Logo } from "../assesets";
+import { FaFacebookSquare } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
 const FooterBottomSection = () => {
   return (
     <footer className="footer">
@@ -26,7 +28,7 @@ const FooterBottomSection = () => {
       </div>
       <div className="bottom-section">
         <div className="logo">
-          <img src="path_to_logo/interior-company-logo.png" alt="MSinteriors" />
+          <img src={Logo} alt="MSinteriors" />
         </div>
         <div className="links">
           <div className="column">
@@ -84,19 +86,10 @@ const FooterBottomSection = () => {
             <h4>Keep in Touch</h4>
             <div className="social-media">
               <a href="#">
-                <img src="path_to_social_icon/facebook.png" alt="Facebook" />
+                <FaFacebookSquare />
               </a>
               <a href="#">
-                <img src="path_to_social_icon/instagram.png" alt="Instagram" />
-              </a>
-              <a href="#">
-                <img src="path_to_social_icon/linkedin.png" alt="LinkedIn" />
-              </a>
-              <a href="#">
-                <img src="path_to_social_icon/pinterest.png" alt="Pinterest" />
-              </a>
-              <a href="#">
-                <img src="path_to_social_icon/youtube.png" alt="YouTube" />
+                <FaInstagram />
               </a>
             </div>
           </div>

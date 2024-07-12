@@ -8,7 +8,7 @@ const ImageCard = ({ src, text, key, items, arrInd }) => {
     const url = `/imgView/${key}`;
     console.log(key, "key");
     const Data = { src: src, text: text, items: items, arrInd: arrInd };
-    console.log("the data to sned", Data);
+    // console.log("the data to sned", Data);
     navigate(url, { state: { src, text, key, items, arrInd } });
   }
   return (

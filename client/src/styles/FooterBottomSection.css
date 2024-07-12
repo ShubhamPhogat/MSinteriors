@@ -79,11 +79,14 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    font-size: xx-large;
+    
 }
 
 .social-media a {
     display: inline-block;
     margin: 0 5px;
+    color: #fff;
 }
 
 .social-media img {

@@ -3,9 +3,7 @@ const cors = require('cors');
 const connectDB = require('./config/db');
 const userRoutes = require('./routes/userRoutes');
 const imageRoutes = require('./routes/imageRoute'); // Add imageRoutes
-
 const app = express();
-
 // Connect Database
 connectDB();
 
@@ -29,7 +27,7 @@ module.exports = (req, res) => {
   res.json({ message: 'Hello from Vercel!' });
 };
 
-// Middleware
+// Middleware https://ms-frontend-six.vercel.app/
 const corsOptions = {
   origin: 'https://ms-frontend-six.vercel.app/', // specify your frontend origin
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',

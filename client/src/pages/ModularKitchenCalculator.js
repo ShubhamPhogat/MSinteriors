@@ -2,34 +2,35 @@
 import React, { useState } from "react";
 import "../styles/ModularKitchenCalculator.css";
 import { useNavigate } from "react-router-dom";
+import { LshapeKitchen, parallel, StraightKitchen, UShape } from "../assesets";
 
 const kitchenShapes = [
   {
     name: "L_Shape",
     description:
       "Efficient and flexible, L-shaped kitchens are perfect for modern homes. They offer practical working space and maximise storage while facilitating free-flow movement.",
-    image: "l-shape.png", // replace with the actual path to your image
+    image: LshapeKitchen, // replace with the actual path to your image
     index: 1,
   },
   {
     name: "U_Shape",
     description:
       "U-shaped kitchens provide ergonomic and effective designs with ample counter space and streamlined cabinetry. This creates organized work zones for medium and spacious kitchens.",
-    image: "u-shape.png",
+    image: UShape,
     index: 2,
   },
   {
     name: "Straight",
     description:
       "Straight kitchens are a linear arrangement of countertops, cabinets, and appliances along a single wall. They save space and highlight functionality, ideal for condominiums or studio apartments.",
-    image: "straight.png",
+    image: StraightKitchen,
     index: 3,
   },
   {
     name: "Parallel",
     description:
       "Smart and practical, Parallel kitchens have two countertops facing each other that create a coherent workflow, profuse storage, and offer increased customizability.",
-    image: "parallel.png",
+    image: parallel,
     index: 4,
   },
 ];

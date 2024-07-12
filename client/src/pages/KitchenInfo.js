@@ -17,7 +17,7 @@ const KitchenInfo = () => {
     if (storedVastu) setVastu(JSON.parse(storedVastu));
     if (storedTitle) setTitle(storedTitle);
   }, []);
-  console.log("type", typeof detail, detail);
+  // console.log("type", typeof detail, detail);
   return (
     <div className="advice-container">
       .<div className="empty">.</div>
