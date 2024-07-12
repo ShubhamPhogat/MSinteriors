@@ -4,6 +4,7 @@ import "../styles/admin.css";
 
 const UploadCard = () => {
   const [formData, setFormData] = useState({
+    type: "",
     src: "",
     description: "",
     color: "",
@@ -42,6 +43,13 @@ const UploadCard = () => {
   return (
     <div className="admin-container">
       <Card title="Add Image" className="upload-card">
+      <Input
+          placeholder="Type"
+          name="type"
+          value={formData.type}
+          onChange={handleChange}
+          className="mt-2"
+        />
         <Input
           placeholder="Image URL"
           name="src"
