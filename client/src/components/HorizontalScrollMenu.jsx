@@ -7,7 +7,7 @@ const HorizontalScrollMenu = (props) => {
     "Living Room",
     "Modular Kitchen",
     "Wardrobe",
-    "Master Bedroom",
+    "Bedroom",
     "Kids Room",
     "Kitchen Wall Tiles",
     "Kitchen False Ceiling",
@@ -15,6 +15,7 @@ const HorizontalScrollMenu = (props) => {
     "Pooja Ghar",
     "Roof",
     "Bathroom",
+    "Dining Room",
   ];
   const scrollRef = useRef(null);
 

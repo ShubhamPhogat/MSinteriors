@@ -7,8 +7,9 @@ const ImageCard = ({ type }) => {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [filteredArray, setFilteredArray] = useState({});
+  const [filteredArray, setFilteredArray] = useState([]);
 
+  console.log("image card type", type.item);
   useEffect(() => {
     setIsLoading(true);
     axios
@@ -16,15 +17,8 @@ const ImageCard = ({ type }) => {
       .then((response) => {
         setData(response.data);
         setIsLoading(false);
-        console.log("succesfuke fetched", response.data, typeof data);
-        if (type) {
-          setFilteredArray(() => {
-            return data.filter((item) => {
-              return item.type === "Bedroom";
-            });
-          });
-        }
-        console.log("filtered data", filteredArray, type);
+        console.log("data fetched", response.data);
+        filterData(response.data, type);
       })
       .catch((error) => {
         console.error("Error fetching data: ", error);
@@ -33,20 +27,29 @@ const ImageCard = ({ type }) => {
       });
   }, []);
 
+  useEffect(() => {
+    if (data) {
+      filterData(data, type);
+    }
+  }, [type, data]);
+
+  const filterData = (data, type) => {
+    console.log("filtering on the type", type);
+    if (type) {
+      setFilteredArray(data.filter((item) => item.type === type.item));
+    } else {
+      setFilteredArray(data.filter((item) => item.type === "Bedroom"));
+    }
+    console.log("filtered itme", filteredArray);
+  };
+
   if (isLoading) return <p>Loading...</p>;
   if (error) return <p>Error loading data!</p>;
 
   return (
-    <div className="card">
-      <img src={data?.src} alt={data?.description} />
-      <div className="card-body">
-        <h5 className="card-title">{data?.description}</h5>
-        <p className="card-text">Color: {data?.color}</p>
-        <p className="card-text">Finish: {data?.finish}</p>
-        <p className="card-text">Theme: {data?.theme}</p>
-      </div>
+    <div>
+      <ImageGallery items={filteredArray} />
     </div>
-    // <ImageGallery items={filteredArray} />
   );
 };
 

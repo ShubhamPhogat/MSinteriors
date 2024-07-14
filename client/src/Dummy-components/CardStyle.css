@@ -21,3 +21,9 @@
   font-size: 18px;
   margin-bottom: 5px;
 }
+.imageGrid{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  align-items: center;
+  width: 100%;
+}

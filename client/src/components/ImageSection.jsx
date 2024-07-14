@@ -1,41 +1,28 @@
 import React, { useState } from "react";
 import "../styles/ImageSection.css"; // Import CSS for styling
 
-// const images = [
-//   {
-//     src: "balcony1.jpg",
-//     description: "Simple Rustic Balcony Design With Wicker Furniture",
-//   },
-//   {
-//     src: "balcony2.jpg",
-//     description: "Simple Rustic Balcony Design with a Glass Coffee Table",
-//   },
-// Add more images as needed
-// ];
-
 const ImageSection = ({ src, text, arrInd, items }) => {
   //   console.log("data get", src, text, arrInd, items);
-  //   console.log("renderd", Data);
-  const [currentIndex, setCurrentIndex] = useState(arrInd);
+  let arr = [{ src: src, description: text }, ...items];
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const handlePrevClick = () => {
-    setCurrentIndex((currentIndex - 1 + items.length) % items.length);
+    setCurrentIndex((currentIndex - 1 + arr.length) % arr.length);
   };
 
   const handleNextClick = () => {
-    setCurrentIndex((currentIndex + 1) % items.length);
+    setCurrentIndex((currentIndex + 1) % arr.length);
   };
 
   return (
     <div className="image-section">
       <img
-        src={items[currentIndex].src}
-        // src={src}
-        alt={items[currentIndex].description}
+        src={arr[currentIndex].src}
+        alt={arr[currentIndex].description}
         className="main-image"
       />
       <div className="image-description">
-        {items[currentIndex].text}
+        {arr[currentIndex].description}
         {/* {text} */}
       </div>
       <div className="navigation-buttons">

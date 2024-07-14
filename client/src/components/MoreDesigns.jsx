@@ -7,7 +7,7 @@ const MoreDesigns = ({ array }) => {
   const [finish, setFinish] = useState(null);
   const [theme, setTheme] = useState(null);
   const [fileterdArray, setFilteredArray] = useState(array);
-
+  console.log("data in mored esign", array);
   const handleColorChange = (event) => {
     setColor(event.target.value);
   };
@@ -60,6 +60,8 @@ const MoreDesigns = ({ array }) => {
               <option value="green">Green</option>
               <option value="yellow">Yellow</option>
               <option value="black">Black</option>
+              <option value="pink">pink</option>
+              <option value="cream">cream</option>
             </select>
           </div>
 
@@ -72,8 +74,8 @@ const MoreDesigns = ({ array }) => {
             >
               <option value=""> Finish</option>
               <option value="marble">Marble</option>
-              <option value="wood">Wood</option>
-              <option value="glassy">Glassy</option>
+              <option value="wooden">Wood</option>
+              <option value="glass">Glassy</option>
               <option value="matte">Matte</option>
             </select>
           </div>
@@ -105,7 +107,7 @@ const MoreDesigns = ({ array }) => {
       <div className="relatedOptions">
         {fileterdArray.map((item, index) => (
           <ImageCard
-            key={item.id}
+            id={item.id}
             arrInd={index}
             src={item.src}
             text={item.description}

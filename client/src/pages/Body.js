@@ -15,7 +15,7 @@ import React, { useEffect, useState } from "react";
 import "../styles/body.css";
 import Card from "../components/Card";
 import HorizontalScrollMenu from "../components/HorizontalScrollMenu";
-import ImageGallery from "../components/ImageGallery.jsx";
+// import ImageGallery from "../components/ImageGallery.jsx";
 import GetCard from "../Dummy-components/GetCard.js";
 import {
   balcony_img,
@@ -33,65 +33,21 @@ import axios from "axios";
 import ImageCard from "../Dummy-components/GetCard.js";
 
 const Body = ({ selectedScroll }) => {
-  // const [data, setData] = useState(null);
+  const [data, setData] = useState(null);
   // const [filteredArray, setFilteredArray] = useState({});
 
-  // useEffect(() => {
-  // setIsLoading(true);
-  // axios
-  //   .get("http://localhost:5000/api/images")
-  //   .then((response) => {
-  //     setData(response.data);
-  // setIsLoading(false);
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/api/images")
+      .then((response) => {
+        setData(response.data);
 
-  // if (type) {
-  //   setFilteredArray(() => {
-  //     return data.filter((item) => {
-  //       return item.type === type;
-  //     });
-  //   });
-  // }
-  //     })
-  //     .catch((error) => {
-  //       console.error("Error fetching data: ", error);
-  //       // setError(error);
-  //       // setIsLoading(false);
-  //     });
-  // }, []);
-  let data = [
-    {
-      id: 34985734,
-      src: bd1,
-      decription: "good cosy bedroom",
-      color: "red",
-      finish: "wooden",
-      theme: "modern",
-    },
-    {
-      id: 9989734,
-      src: bd2,
-      decription: "good cosy bedroom 2",
-      color: "blue",
-      finish: "wooden",
-      theme: "luxuary",
-    },
-    {
-      id: 7587578734,
-      src: kt1,
-      decription: "good cosy kithcen",
-      color: "cream",
-      finish: "matt",
-      theme: "luxuary",
-    },
-    {
-      id: 12111734,
-      src: wardrobeImg,
-      decription: "good cosy bedroom",
-      color: "black",
-      finish: "glass",
-      theme: "modern",
-    },
-  ];
+        console.log("data fetched in body", response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching data: ", error);
+      });
+  }, []);
 
   const [Design, setDesign] = useState(null);
   const [filteredArray, setfilteredArray] = useState(data);
@@ -100,18 +56,22 @@ const Body = ({ selectedScroll }) => {
 
   let navigate = useNavigate();
 
+  useEffect(() => {
+    if (filteredArray) {
+      const src = filteredArray[0].src;
+      const text = filteredArray[0].description;
+      const id = filteredArray[0].id;
+      const arrInd = 0;
+      const url = `/imgView/${id}`;
+      let items = filteredArray;
+      console.log("data to send via card", items);
+      navigate(url, { state: { src, text, id, items, arrInd } });
+    }
+  }, [filteredArray]);
+
   function handleClick(type) {
-    setfilteredArray(() => {
-      return data.filter((item) => {
-        return item.type === type;
-      });
-    });
-    let src = filteredArray[0].src;
-    let text = filteredArray[0].description;
-    let id = filteredArray[0].id;
-    let arrInd = 0;
-    const url = `/imgView/${id}`;
-    navigate(url, { state: { src, text, id, filteredArray, arrInd } });
+    const newArray = data.filter((item) => item.type === type);
+    setfilteredArray(newArray);
   }
 
   return (
@@ -164,10 +124,9 @@ const Body = ({ selectedScroll }) => {
           funcVal={Design}
         />
       </div>
-      <div className="imgGallery">
+      <div>
         {/* {console.log("this is des", Design)} */}
-        <ImageCard value={Design || "Bedroom"} />
-        <ImageCard />
+        <ImageCard type={Design || "Bedroom"} />
       </div>
     </div>
   );

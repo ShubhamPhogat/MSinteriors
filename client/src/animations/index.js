@@ -25,3 +25,4 @@ export const staggerFadeInOut = (i) => {
     key: { i },
   };
 };
+// export { default as videBg } from "./videoBg.mp4";
