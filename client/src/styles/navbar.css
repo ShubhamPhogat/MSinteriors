@@ -220,3 +220,8 @@
     display: none;
   }
 }
+@media(min-width:950px) {
+  .toggleIcon {
+    display: none;
+  }
+}

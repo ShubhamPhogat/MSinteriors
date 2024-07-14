@@ -23,8 +23,8 @@ const MoreDesigns = ({ array }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log("Selected Values:", { color, finish, theme });
-    setFilteredArray((prevArray) => {
-      return prevArray.filter((item) => {
+    setFilteredArray(() => {
+      return array.filter((item) => {
         return (
           (color ? item.color === color : true) &&
           (finish ? item.finish === finish : true) &&
@@ -54,7 +54,7 @@ const MoreDesigns = ({ array }) => {
               value={color}
               onChange={handleColorChange}
             >
-              <option value=""> Color</option>
+              <option value={null}> Color</option>
               <option value="red">Red</option>
               <option value="blue">Blue</option>
               <option value="green">Green</option>
@@ -72,7 +72,7 @@ const MoreDesigns = ({ array }) => {
               value={finish}
               onChange={handleFinishChange}
             >
-              <option value=""> Finish</option>
+              <option value={null}> Finish</option>
               <option value="marble">Marble</option>
               <option value="wooden">Wood</option>
               <option value="glass">Glassy</option>
@@ -87,10 +87,10 @@ const MoreDesigns = ({ array }) => {
               value={theme}
               onChange={handleThemeChange}
             >
-              <option value="">Theme</option>
+              <option value={null}>Theme</option>
               <option value="traditional">Traditional</option>
               <option value="contemporary">Contemporary</option>
-              <option value="luxury">Luxury</option>
+              <option value="luxuary">Luxury</option>
               <option value="modern">Modern</option>
             </select>
           </div>

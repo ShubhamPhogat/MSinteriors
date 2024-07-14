@@ -5,10 +5,10 @@ import { useEffect } from "react";
 const HorizontalScrollMenu = (props) => {
   const categories = [
     "Living Room",
-    "Modular Kitchen",
+    "Kitchen",
     "Wardrobe",
     "Bedroom",
-    "Kids Room",
+    "Kids-Room",
     "Kitchen Wall Tiles",
     "Kitchen False Ceiling",
     "Balcony",
@@ -26,7 +26,7 @@ const HorizontalScrollMenu = (props) => {
   useEffect(() => {
     const data = localStorage.getItem("selectedItem");
     if (data) {
-      console.log("Retrieved data:", JSON.parse(data));
+      // console.log("Retrieved data:", JSON.parse(data));
       props.func(data);
     } else {
       console.log("no data");

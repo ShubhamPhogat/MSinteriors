@@ -27,10 +27,48 @@ const Navbar = ({ setScroll }) => {
     navigate(path);
   };
   function skipToMain(data) {
-    const ele = document.getElementById("scrollBar");
+    // Store data in localStorage
     localStorage.setItem("selectedItem", JSON.stringify(data));
-    setScroll(data);
-    ele.scrollIntoView({ behavior: "smooth" });
+
+    // Function to set the scroll and attach data to the element
+    const setScroll = (data) => {
+      const ele = document.getElementById("scrollBar");
+
+      if (ele) {
+        // Attach data to the element
+        ele.setAttribute("data-scroll-data", JSON.stringify(data));
+
+        // Scroll to the element smoothly
+        ele.scrollIntoView({ behavior: "smooth" });
+        console.log("Scrolled to ele:", ele);
+      } else {
+        console.log("Element not found, navigating to root");
+        navigate("/");
+      }
+    };
+
+    // Attempt to set scroll with a delay to ensure the element is loaded
+    const attempts = 10; // Number of attempts
+    const delay = 100; // Delay between attempts in milliseconds
+
+    let currentAttempt = 0;
+
+    const intervalId = setInterval(() => {
+      const ele = document.getElementById("scrollBar");
+
+      if (ele) {
+        clearInterval(intervalId);
+        setScroll(data);
+      } else if (currentAttempt >= attempts) {
+        clearInterval(intervalId);
+        console.log(
+          "Element not found after multiple attempts, navigating to root"
+        );
+        navigate("/");
+      }
+
+      currentAttempt++;
+    }, delay);
   }
 
   return (

@@ -11,6 +11,7 @@ const SizeSelection = () => {
   const [sizeC, setSizeC] = useState({ feet: "", inches: "" });
   const location = useLocation();
   const shape = location.state || "";
+  console.log("the shape is ", shape);
   const handleSizeChange = (e, setSize) => {
     const { name, value } = e.target;
     setSize((prevState) => ({ ...prevState, [name]: value }));
@@ -25,9 +26,9 @@ const SizeSelection = () => {
     navigate(-1);
   }
   let imgUrl = "";
-  if (shape === "U_Shape") imgUrl = Ushape;
-  else if (shape === "L_Shape") imgUrl = Lshape;
-  else if (shape === "Straight") imgUrl = Straight;
+  if (shape.name === "U_Shape") imgUrl = Ushape;
+  else if (shape.name === "L_Shape") imgUrl = Lshape;
+  else if (shape.name === "Straight") imgUrl = Straight;
   else imgUrl = Parallel;
 
   return (
@@ -103,7 +104,7 @@ const SizeSelection = () => {
                 {/* Add more options as needed */}
               </select>
             </div>
-            {shape && shape !== "Straight" ? (
+            {shape && shape.name !== "Straight" ? (
               <div className="option">
                 <span className="label">B</span>
                 <select
@@ -170,7 +171,7 @@ const SizeSelection = () => {
             ) : (
               <></>
             )}
-            {shape && shape === "U_Shape" ? (
+            {shape && shape.name === "U_Shape" ? (
               <div className="option">
                 <span className="label">C</span>
                 <select
