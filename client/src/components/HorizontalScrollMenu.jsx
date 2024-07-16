@@ -16,6 +16,7 @@ const HorizontalScrollMenu = (props) => {
     "Roof",
     "Bathroom",
     "Dining Room",
+    "Tv Unit",
   ];
   const scrollRef = useRef(null);
 

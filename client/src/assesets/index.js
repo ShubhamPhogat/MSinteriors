@@ -6,7 +6,7 @@ export { default as bg2 } from "./img/bg2.jpg";
 export { default as dropBg } from "./img/drops.avif";
 export { default as ss1 } from "./img/ss1.png";
 export { default as livingRoom } from "./img/livingRoom.jpeg";
-export { default as kidsRoom } from "./img/kidsroom.png";
+export { default as kidsRoom } from "./img/kidsRoom.avif";
 export { default as tvUnit } from "./img/tvunit.jpeg";
 export { default as wardrobe } from "./img/wardrobe.png";
 export { default as bedroom } from "./img/bedroom.png";

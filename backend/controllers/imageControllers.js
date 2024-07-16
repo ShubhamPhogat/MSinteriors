@@ -15,6 +15,7 @@ const addImage = async (req, res) => {
 const getAllImages = async (req, res) => {
   try {
     const images = await Image.find();
+    console.log(images);
     res.json(images);
   } catch (err) {
     res.status(500).json({ message: err.message });

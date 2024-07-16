@@ -50,8 +50,18 @@ justify-content: center;
 .itemList
 {
     display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-between;
+    /* background-color: aqua; */
+}
+}
+@media(max-width:820px ) and (min-width:481px){
+.itemList
+{
+    display: grid;
     grid-template-columns:1fr  1fr  1fr ;
     justify-content: space-between;
     /* background-color: aqua; */
 }
 }
+

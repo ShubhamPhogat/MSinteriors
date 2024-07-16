@@ -22,6 +22,7 @@ import {
   bd1,
   bd2,
   ciel,
+  kidsRoom,
   kt1,
   pj1,
   ss1,
@@ -90,7 +91,7 @@ const Body = ({ selectedScroll }) => {
             <Card data={bd2} text="bedroom" />
           </div>
           <div onClick={() => handleClick("Kids-Room")} className="cards">
-            <Card data={kt1} text="Kids-Room" />
+            <Card data={kidsRoom} text="Kids-Room" />
           </div>
           <div onClick={() => handleClick("Kitchen")} className="cards">
             <Card data={kt1} text="Kitchen" />
