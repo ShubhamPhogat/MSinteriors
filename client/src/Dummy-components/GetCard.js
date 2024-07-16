@@ -13,7 +13,9 @@ const ImageCard = ({ type }) => {
   useEffect(() => {
     setIsLoading(true);
     axios
-      .get("http://localhost:5000/api/images")
+      .get(
+        "https://msinteriorsbackend-8racuug2f-shubhams-projects-4aaf96ad.vercel.app/api/images"
+      )
       .then((response) => {
         setData(response.data);
         setIsLoading(false);
