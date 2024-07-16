@@ -12,7 +12,7 @@ connectDB();
 
 // Middleware to handle CORS
 const corsOptions = {
-  origin: 'https://m-sinteriorsfrontend-shubhams-projects-4aaf96ad.vercel.app/', // Allow all origins
+  origin: '*', // Allow all origins
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   allowedHeaders: 'X-Requested-With,content-type',
   credentials: true, // Allow cookies and other credentials
