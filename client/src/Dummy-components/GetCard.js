@@ -10,9 +10,9 @@ const ImageCard = ({ type }) => {
   const [filteredArray, setFilteredArray] = useState([]);
 
   console.log("image card type", type.item);
-  useEffect(() => {
+  useEffect(async () => {
     setIsLoading(true);
-    axios
+    await axios
       .get("https://msinteriors-backend.onrender.com/")
       .then((response) => {
         setData(response.data);
