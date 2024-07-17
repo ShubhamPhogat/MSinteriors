@@ -1,7 +1,6 @@
 import axios from "axios";
 
-const baseurl =
-  "https://msinteriorsbackend-8racuug2f-shubhams-projects-4aaf96ad.vercel.app/";
+const baseurl = "https://msinteriors-backend.onrender.com/";
 
 export const registerUser = async (formData) => {
   try {
