@@ -21,7 +21,7 @@ const ImageCard = ({ type }) => {
         filterData(response.data, type);
       })
       .catch((error) => {
-        console.error("Error fetching data: ", error);
+        console.log("Error fetching data: ", error);
         setError(error);
         setIsLoading(false);
       });
@@ -35,7 +35,7 @@ const ImageCard = ({ type }) => {
 
   const filterData = (data, type) => {
     console.log("filtering on the type", type);
-    if (type) {
+    if (type && data) {
       setFilteredArray(data.filter((item) => item.type === type.item));
     } else {
       setFilteredArray(data.filter((item) => item.type === "Bedroom"));
